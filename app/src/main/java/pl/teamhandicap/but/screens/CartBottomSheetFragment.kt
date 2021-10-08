@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_cart_bottom_sheet.*
 import pl.teamhandicap.but.NewOrderViewModel
@@ -28,6 +29,11 @@ class CartBottomSheetFragment: BottomSheetDialogFragment() {
         val viewModel by viewModels<NewOrderViewModel>()
         viewModel.cartItems.value!!.forEach { itemName ->
             productsList.addView(TextView(context).apply { text = itemName })
+        }
+        orderButton.setOnClickListener {
+            parentFragment?.findNavController()?.navigate(
+                NewOrderFragmentDirections.confirmOrder()
+            )
         }
     }
 
