@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_main_layout.view.*
 import pl.teamhandicap.but.R
 
@@ -22,7 +21,7 @@ class MainScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.newOrderButton.setOnClickListener {
-          findNavController().navigate(MainScreenFragmentDirections.newOrder())
+            findNavController().navigate(MainScreenFragmentDirections.newOrder())
         }
     }
 }

@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#b8bab9</color>
+    <color name="light_blue">#e9f0ea</color>
+    <color name="light_yellow">#fcf9bd</color>
+    <color name="light_green">#bffaa7</color>
+
+    <array name="box_colors">
+        <item>@color/light_blue</item>
+        <item>@color/light_yellow</item>
+        <item>@color/light_green</item>
+    </array>
 </resources>
