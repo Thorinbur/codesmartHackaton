@@ -15,7 +15,11 @@
         android:id="@+id/mainScreenFragment"
         android:name="pl.teamhandicap.but.screens.MainScreenFragment"
         android:label="@string/main_fragment_label"
-        tools:layout="@layout/fragment_main_layout" />
+        tools:layout="@layout/fragment_main_layout" >
+        <action
+            android:id="@+id/newOrder"
+            app:destination="@id/newOrderFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/newOrderFragment"
