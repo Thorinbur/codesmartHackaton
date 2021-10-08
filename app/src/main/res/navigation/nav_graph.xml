@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="pl.teamhandicap.but.screens.ConfirmationFragment"
+        android:label="@string/confirmation_fragment_label"
+        tools:layout="@layout/fragment_confirmation_layout" />
+
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="pl.teamhandicap.but.screens.MainScreenFragment"
+        android:label="@string/main_fragment_label"
+        tools:layout="@layout/fragment_main_layout" />
+
+    <fragment
+        android:id="@+id/newOrderFragment"
+        android:name="pl.teamhandicap.but.screens.NewOrderFragment"
+        android:label="@string/new_order_fragment_label"
+        tools:layout="@layout/fragment_new_order" />
+
+</navigation>

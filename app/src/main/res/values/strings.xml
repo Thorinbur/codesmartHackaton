@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">But</string>
+    <string name="confirmation_fragment_label">Confirmation Label</string>
+    <string name="main_fragment_label">Confirmation Label</string>
+    <string name="new_order_fragment_label">Confirmation Label</string>
 </resources>
