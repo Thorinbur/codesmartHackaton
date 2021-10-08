@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_new_order.view.*
+import kotlinx.android.synthetic.main.fragment_new_order.*
 import pl.teamhandicap.but.R
 
 class NewOrderFragment : Fragment() {
@@ -20,8 +19,11 @@ class NewOrderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.orderButton.setOnClickListener {
-            findNavController().navigate(NewOrderFragmentDirections.confirmOrder())
+
+        showCartButton.setOnClickListener {
+            CartBottomSheetFragment
+                .newInstance()
+                .show(childFragmentManager, null)
         }
     }
 }
