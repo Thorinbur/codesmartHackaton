@@ -3,4 +3,5 @@
     <string name="confirmation_fragment_label">Confirmation Label</string>
     <string name="main_fragment_label">Confirmation Label</string>
     <string name="new_order_fragment_label">Confirmation Label</string>
+    <string name="cart_fragment_label">Cart Label</string>
 </resources>

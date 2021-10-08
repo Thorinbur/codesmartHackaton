@@ -15,7 +15,7 @@
         android:id="@+id/mainScreenFragment"
         android:name="pl.teamhandicap.but.screens.MainScreenFragment"
         android:label="@string/main_fragment_label"
-        tools:layout="@layout/fragment_main_layout" >
+        tools:layout="@layout/fragment_main_layout">
         <action
             android:id="@+id/newOrder"
             app:destination="@id/newOrderFragment" />
@@ -25,10 +25,20 @@
         android:id="@+id/newOrderFragment"
         android:name="pl.teamhandicap.but.screens.NewOrderFragment"
         android:label="@string/new_order_fragment_label"
-        tools:layout="@layout/fragment_new_order" >
+        tools:layout="@layout/fragment_new_order">
+        <action
+            android:id="@+id/showCart"
+            app:destination="@id/cartDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/cartDialog"
+        android:name="pl.teamhandicap.but.screens.CartBottomSheetFragment"
+        android:label="@string/cart_fragment_label"
+        tools:layout="@layout/fragment_cart_bottom_sheet">
         <action
             android:id="@+id/confirmOrder"
             app:destination="@id/confirmationFragment" />
-    </fragment>
+    </dialog>
 
 </navigation>

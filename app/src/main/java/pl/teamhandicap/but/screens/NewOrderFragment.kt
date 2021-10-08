@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_new_order.*
 import pl.teamhandicap.but.R
 
@@ -21,9 +22,9 @@ class NewOrderFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         showCartButton.setOnClickListener {
-            CartBottomSheetFragment
-                .newInstance()
-                .show(childFragmentManager, null)
+            findNavController().navigate(
+                NewOrderFragmentDirections.showCart()
+            )
         }
     }
 }

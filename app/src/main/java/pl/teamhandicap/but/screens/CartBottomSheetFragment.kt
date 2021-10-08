@@ -31,8 +31,8 @@ class CartBottomSheetFragment: BottomSheetDialogFragment() {
             productsList.addView(TextView(context).apply { text = itemName })
         }
         orderButton.setOnClickListener {
-            parentFragment?.findNavController()?.navigate(
-                NewOrderFragmentDirections.confirmOrder()
+            findNavController().navigate(
+                CartBottomSheetFragmentDirections.confirmOrder()
             )
         }
     }
