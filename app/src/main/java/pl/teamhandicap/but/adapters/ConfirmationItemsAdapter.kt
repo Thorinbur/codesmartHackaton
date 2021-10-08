@@ -32,7 +32,7 @@ class ConfirmationItemsAdapter(
             itemView.apply {
                 colors?.let {
                     val color = it[position % it.size]
-                    confirmationItemContainer.setCardBackgroundColor(color)
+//                    confirmationItemContainer.setCardBackgroundColor(color)
                 }
                 confirmationItemImage.setImageResource(model.imageRes)
                 confirmationItemDetailsRecyclerView.apply {

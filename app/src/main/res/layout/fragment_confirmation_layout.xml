@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,9 +8,29 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/confirmationRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:itemCount="5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/confirmationPriceSummary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="2"
         tools:listitem="@layout/item_confirmation" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/confirmationPriceSummary"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@drawable/details_summary_background"
+        android:elevation="10dp"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="15 PLN" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

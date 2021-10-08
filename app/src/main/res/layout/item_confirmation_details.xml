@@ -3,6 +3,7 @@
     android:id="@+id/detailsContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
     android:orientation="horizontal">
 
     <ImageView
@@ -15,6 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
+        android:fontFamily="@font/roboto_regular"
         android:text="Cukier x1" />
 
 </LinearLayout>

@@ -28,11 +28,12 @@ class ConfirmationFragment : Fragment() {
         val colors = context?.resources?.getIntArray(R.array.box_colors)
         val adapter = ConfirmationItemsAdapter(createTestData(), colors)
         val layoutManager = LinearLayoutManager(context)
-        (activity as MainActivity).setActionBarTitle("Order Confirmation")
+        (activity as MainActivity).setActionBarTitle("Checkout")
         confirmationRecyclerView.apply {
             setLayoutManager(layoutManager)
             setAdapter(adapter)
         }
+        confirmationPriceSummary.text = "12.90 PLN"
     }
 
     private fun createTestData(): List<TestModel> {
@@ -43,18 +44,18 @@ class ConfirmationFragment : Fragment() {
                 details = listOf(
                     DetailsModel(
                         name = "Cukier x1",
-                        imageRes = R.drawable.ic_food_2
+                        imageRes = R.drawable.ic_detail_outline
                     ),
                     DetailsModel(
                         name = "Mieszadelko",
-                        imageRes = R.drawable.ic_food_2
+                        imageRes = R.drawable.ic_detail_outline
                     ),
                     DetailsModel(
                         name = "Mleko bez laktozy",
-                        imageRes = R.drawable.ic_food_2
+                        imageRes = R.drawable.ic_detail_outline
                     )
                 ),
-                imageRes = R.drawable.ic_cafe,
+                imageRes = R.drawable.ic_cafe_outline,
                 price = 3.0
             ),
             TestModel(
@@ -63,21 +64,21 @@ class ConfirmationFragment : Fragment() {
                 details = listOf(
                     DetailsModel(
                         name = "Cukier Trzcinowy x2",
-                        imageRes = R.drawable.ic_food_2
+                        imageRes = R.drawable.ic_detail_outline
                     ),
                     DetailsModel(
                         name = "Mieszadelko",
-                        imageRes = R.drawable.ic_food_2
+                        imageRes = R.drawable.ic_detail_outline
                     ),
                 ),
-                imageRes = R.drawable.ic_cafe,
+                imageRes = R.drawable.ic_cafe_outline,
                 price = 3.0
             ),
             TestModel(
-                name = "Kanapka Indyk & jalapeno",
+                name = "Kanapka Indyk",
                 numberOfItems = 1,
                 details = listOf(),
-                imageRes = R.drawable.ic_food,
+                imageRes = R.drawable.ic_food_outline,
                 price = 6.90
             )
         )
