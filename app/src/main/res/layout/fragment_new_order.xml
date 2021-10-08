@@ -10,6 +10,27 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
 
+        <pl.teamhandicap.but.view.ProductItemView
+            android:id="@+id/productCoffee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_shopping_bag"
+            app:label="Kawa" />
+
+        <pl.teamhandicap.but.view.ProductItemView
+            android:id="@+id/productOtherCoffee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_shopping_bag"
+            app:label="Inna kawa" />
+
+        <pl.teamhandicap.but.view.ProductItemView
+            android:id="@+id/productTea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_shopping_bag"
+            app:label="Herbata" />
+
     </GridLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
