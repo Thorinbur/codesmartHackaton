@@ -25,6 +25,10 @@
         android:id="@+id/newOrderFragment"
         android:name="pl.teamhandicap.but.screens.NewOrderFragment"
         android:label="@string/new_order_fragment_label"
-        tools:layout="@layout/fragment_new_order" />
+        tools:layout="@layout/fragment_new_order" >
+        <action
+            android:id="@+id/confirmOrder"
+            app:destination="@id/confirmationFragment" />
+    </fragment>
 
 </navigation>

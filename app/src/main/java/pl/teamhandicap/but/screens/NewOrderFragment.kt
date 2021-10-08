@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_new_order.view.*
 import pl.teamhandicap.but.R
 
 class NewOrderFragment : Fragment() {
@@ -14,5 +16,12 @@ class NewOrderFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_new_order, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.orderButton.setOnClickListener {
+            findNavController().navigate(NewOrderFragmentDirections.confirmOrder())
+        }
     }
 }
