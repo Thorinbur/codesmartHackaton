@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.fragment_new_order.*
+import pl.teamhandicap.but.MainActivity
 import pl.teamhandicap.but.NewOrderViewModel
 import pl.teamhandicap.but.R
 import pl.teamhandicap.but.adapters.ProductListAdapter
@@ -29,6 +30,7 @@ class NewOrderFragment : Fragment() {
 
         productsList.adapter = ProductListAdapter(viewModel.products, ::onProductClicked)
         productsList.layoutManager = GridLayoutManager(context, 3)
+        (activity as MainActivity).setActionBarTitle("Menu")
 
         showCartButton.setOnClickListener {
             findNavController().navigate(

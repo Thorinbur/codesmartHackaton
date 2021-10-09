@@ -2,7 +2,6 @@ package pl.teamhandicap.but.adapters
 
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.view_product_item.view.*
 import pl.teamhandicap.but.Product
@@ -37,8 +36,9 @@ class ProductListAdapter(
 
         fun bind(model: Product, onClickAction: (Int) -> Unit) {
             label.text = itemView.context.getText(model.nameRes)
-            val drawable = AppCompatResources.getDrawable(itemView.context, model.iconRes)
-            icon.setImageDrawable(drawable)
+//            val drawable = AppCompatResources.getDrawable(itemView.context, model.iconRes)
+            icon.setImageResource(model.iconRes)
+//            icon.setImageDrawable(drawable)
             itemView.setOnClickListener { onClickAction(model.id) }
         }
     }

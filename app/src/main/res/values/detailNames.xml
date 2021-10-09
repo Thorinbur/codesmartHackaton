@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="sugar">sugar</string>
+    <string name="sugar_cane">sugar_cane</string>
+    <string name="mixer">mixer</string>
+    <string name="milk">milk</string>
+    <string name="milk_soy">soy milk</string>
+    <string name="milk_lactose_free">lactose-free milk</string>
 </resources>
