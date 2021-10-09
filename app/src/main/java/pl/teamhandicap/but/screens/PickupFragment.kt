@@ -18,6 +18,7 @@ import androidmads.library.qrgenearator.QRGContents
 
 import androidmads.library.qrgenearator.QRGEncoder
 import kotlinx.android.synthetic.main.fragment_pick_up.*
+import pl.teamhandicap.but.MainActivity
 
 class PickupFragment : Fragment() {
     override fun onCreateView(
@@ -30,8 +31,8 @@ class PickupFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val qrgEncoder = QRGEncoder("testestesteasdew", null, QRGContents.Type.TEXT, 600 )
+        (activity as MainActivity).setActionBarTitle("")
+        val qrgEncoder = QRGEncoder(arguments?.get("orderId") as String, null, QRGContents.Type.TEXT, 600 )
         qrgEncoder.colorBlack = Color.BLACK
         qrgEncoder.colorWhite = Color.WHITE
         try {

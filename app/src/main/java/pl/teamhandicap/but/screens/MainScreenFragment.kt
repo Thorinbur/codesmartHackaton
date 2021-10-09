@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_main_layout.view.*
+import pl.teamhandicap.but.MainActivity
 import pl.teamhandicap.but.R
 import pl.teamhandicap.but.adapters.OrderListAdapter
 import pl.teamhandicap.but.network.Repository
@@ -30,5 +31,6 @@ class MainScreenFragment : Fragment() {
             view.orderList.adapter = adapter
             adapter.notifyDataSetChanged()
         }
+        (activity as MainActivity).setActionBarTitle("Twoje zamówienia")
     }
 }

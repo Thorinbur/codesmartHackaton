@@ -24,6 +24,7 @@ class OrderListAdapter(private val items:List<Order>):RecyclerView.Adapter<Order
                     itemView.actionButton.setOnClickListener {
                         itemView.findNavController().navigate(MainScreenFragmentDirections.pickUp(order.id!!))
                     }
+                    itemView.actionButton.isEnabled = true
                     itemView.orderNumber.text = "Twoje zamówienie o numerze ${order.orderNumber.toString()} \n jest gotowe do odbioru! Zapraszamy!"
                 }
                 Status.Pending -> {
