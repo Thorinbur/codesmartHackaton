@@ -8,4 +8,5 @@
     <string name="confirmation_order_button">Złóż zamówienie</string>
     <string name="new_order">Nowe zamówienie</string>
     <string name="accept">Potwierdź</string>
+    <string name="checkout">Przejdź do podsumowania</string>
 </resources>
