@@ -45,6 +45,7 @@ class ProductListAdapter(
         private val label get() = itemView.label
         private val icon get() = itemView.icon
         private val quantity get() = itemView.itemQuantityCounter
+        private val price get() = itemView.price
 
         fun bind(model: ProductAdapterItem, onClickAction: (Int) -> Unit) {
             label.text = itemView.context.getText(model.product.nameRes)
@@ -52,6 +53,7 @@ class ProductListAdapter(
             quantity.text = model.selectedQuantity.toString()
             quantity.isVisible = model.selectedQuantity > 0
             itemView.setOnClickListener { onClickAction(model.product.id) }
+            price.text = "${model.product.price} PLN"
         }
     }
 }
