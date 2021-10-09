@@ -46,8 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:padding="10dp"
-            android:text="@string/confirmation_order_button"
-            android:textColor="@color/black" />
+            android:text="@string/confirmation_order_button" />
 
     </LinearLayout>
 
