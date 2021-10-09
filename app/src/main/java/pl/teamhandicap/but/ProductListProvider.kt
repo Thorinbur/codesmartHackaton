@@ -3,12 +3,14 @@ package pl.teamhandicap.but
 object ProductListProvider {
     fun get() = listOf(
         Product(
+            id = 1,
             nameRes = R.string.coffee,
             iconRes = R.drawable.ic_cafe,
             price = 3.0,
             details = listOf(Detail.SUGAR),
         ),
         Product(
+            id = 2,
             nameRes = R.string.tea,
             iconRes = R.drawable.ic_cafe,
             price = 3.0,
@@ -18,6 +20,7 @@ object ProductListProvider {
 }
 
 data class Product(
+    val id: Int,
     val nameRes: Int,
     val iconRes: Int,
     val price: Double,
