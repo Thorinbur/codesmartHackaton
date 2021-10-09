@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_cart_bottom_sheet.*
 import pl.teamhandicap.but.NewOrderViewModel
 import pl.teamhandicap.but.R
 
-class CartBottomSheetFragment: BottomSheetDialogFragment() {
+class CartBottomSheetFragment : BottomSheetDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,9 +26,14 @@ class CartBottomSheetFragment: BottomSheetDialogFragment() {
     }
 
     private fun setUpViews() {
-        val viewModel by viewModels<NewOrderViewModel>()
-        viewModel.cartItems.value!!.forEach { itemName ->
-            productsList.addView(TextView(context).apply { text = itemName })
+        val viewModel by activityViewModels<NewOrderViewModel>()
+        viewModel.cartItems.observe(viewLifecycleOwner) { products ->
+            products.forEach { product ->
+                val textView = TextView(context).apply {
+                    text = context.getText(product.nameRes)
+                }
+                productsList.addView(textView)
+            }
         }
         orderButton.setOnClickListener {
             findNavController().navigate(

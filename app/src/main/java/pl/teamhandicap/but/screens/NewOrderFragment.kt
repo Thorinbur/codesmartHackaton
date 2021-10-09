@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.fragment_new_order.*
@@ -14,7 +14,7 @@ import pl.teamhandicap.but.R
 import pl.teamhandicap.but.adapters.ProductListAdapter
 
 class NewOrderFragment : Fragment() {
-    private val viewModel by viewModels<NewOrderViewModel>()
+    private val viewModel by activityViewModels<NewOrderViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,7 +27,7 @@ class NewOrderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        productsList.adapter = ProductListAdapter(viewModel.products)
+        productsList.adapter = ProductListAdapter(viewModel.products, ::onProductClicked)
         productsList.layoutManager = GridLayoutManager(context, 3)
 
         showCartButton.setOnClickListener {
@@ -35,5 +35,9 @@ class NewOrderFragment : Fragment() {
                 NewOrderFragmentDirections.showCart()
             )
         }
+    }
+
+    private fun onProductClicked(id: Int) {
+        viewModel.addProductToOrder(id)
     }
 }

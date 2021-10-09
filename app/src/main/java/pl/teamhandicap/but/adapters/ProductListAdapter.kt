@@ -9,7 +9,8 @@ import pl.teamhandicap.but.Product
 import pl.teamhandicap.but.view.ProductItemView
 
 class ProductListAdapter(
-    private val items: List<Product>
+    private val items: List<Product>,
+    private val onItemClicked: (Int) -> Unit,
 ) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -17,19 +18,28 @@ class ProductListAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        items[position].let { item -> holder.bind(item) }
+        items[position].let { item ->
+            holder.bind(item) {
+                onItemCLicked(it)
+            }
+        }
     }
 
     override fun getItemCount() = items.size
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private fun onItemCLicked(id: Int) {
+        this.onItemClicked(id)
+    }
+
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val label get() = itemView.label
         private val icon get() = itemView.icon
 
-        fun bind(model: Product) {
+        fun bind(model: Product, onClickAction: (Int) -> Unit) {
             label.text = itemView.context.getText(model.nameRes)
             val drawable = AppCompatResources.getDrawable(itemView.context, model.iconRes)
             icon.setImageDrawable(drawable)
+            itemView.setOnClickListener { onClickAction(model.id) }
         }
     }
 }
