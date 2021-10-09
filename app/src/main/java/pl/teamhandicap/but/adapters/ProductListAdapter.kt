@@ -48,7 +48,7 @@ class ProductListAdapter(
 
         fun bind(model: ProductAdapterItem, onClickAction: (Int) -> Unit) {
             label.text = itemView.context.getText(model.product.nameRes)
-            icon.setImageResource(model.product.iconRes)
+            icon.setImageResource(model.product.imageRes)
             quantity.text = model.selectedQuantity.toString()
             quantity.isVisible = model.selectedQuantity > 0
             itemView.setOnClickListener { onClickAction(model.product.id) }

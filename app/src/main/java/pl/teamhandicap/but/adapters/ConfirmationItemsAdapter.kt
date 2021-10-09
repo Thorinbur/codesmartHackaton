@@ -7,10 +7,11 @@ import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_confirmation.view.*
+import pl.teamhandicap.but.CartItem
 import pl.teamhandicap.but.R
 
 class ConfirmationItemsAdapter(
-    private val items: List<TestModel>,
+    private val items: List<CartItem>,
     private val colors: IntArray?
 ) : RecyclerView.Adapter<ConfirmationItemsAdapter.ItemViewHolder>() {
 
@@ -34,15 +35,15 @@ class ConfirmationItemsAdapter(
                     val color = it[position % it.size]
 //                    confirmationItemContainer.setCardBackgroundColor(color)
                 }
-                confirmationItemImage.setImageResource(model.imageRes)
+                confirmationItemImage.setImageResource(model.product.iconRes)
                 confirmationItemDetailsRecyclerView.apply {
                     layoutManager = LinearLayoutManager(context)
                     val detailsAdapter = ConfirmationDetailsAdapter(model.details)
                     adapter = detailsAdapter
                     detailsAdapter.notifyDataSetChanged()
                 }
-                confirmationTitleTextView.text = model.name
-                val price = String.format("%.2f", model.price)
+                confirmationTitleTextView.text = context.getString(model.product.nameRes)
+                val price = String.format("%.2f", model.product.price)
                 val priceText = "$price PLN"
                 confirmationTotalPrice.text = priceText
             }
@@ -53,7 +54,7 @@ class ConfirmationItemsAdapter(
 data class TestModel(
     val name: String,
     val numberOfItems: Int,
-    val details: List<DetailsModel>,
+    val details: List<CartItem>,
     val price: Double,
     @DrawableRes val imageRes: Int
 )

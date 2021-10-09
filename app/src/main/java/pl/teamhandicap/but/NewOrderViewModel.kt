@@ -1,7 +1,9 @@
 package pl.teamhandicap.but
 
+import android.os.Parcelable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.android.parcel.Parcelize
 
 class NewOrderViewModel : ViewModel() {
     val products get() = ProductListProvider.get()
@@ -23,7 +25,8 @@ class NewOrderViewModel : ViewModel() {
     }
 }
 
+@Parcelize
 data class CartItem(
     val product: Product,
     val details: List<Detail>,
-)
+) : Parcelable

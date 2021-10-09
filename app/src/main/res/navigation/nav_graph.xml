@@ -9,7 +9,13 @@
         android:id="@+id/confirmationFragment"
         android:name="pl.teamhandicap.but.screens.ConfirmationFragment"
         android:label="@string/confirmation_fragment_label"
-        tools:layout="@layout/fragment_confirmation_layout" />
+        tools:layout="@layout/fragment_confirmation_layout">
+
+        <argument
+            android:name="orderConfirmation"
+            app:argType="pl.teamhandicap.but.screens.OrderConfirmationData" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/mainScreenFragment"
@@ -21,8 +27,7 @@
             app:destination="@id/newOrderFragment" />
         <action
             android:id="@+id/pickUp"
-            app:destination="@id/pickupFragment"
-            />
+            app:destination="@id/pickupFragment" />
     </fragment>
 
     <fragment
@@ -61,7 +66,7 @@
     <fragment
         android:id="@+id/pickupFragment"
         android:name="pl.teamhandicap.but.screens.PickupFragment"
-        android:label="PickupFragment" >
+        android:label="PickupFragment">
         <argument
             android:name="orderId"
             app:argType="string" />

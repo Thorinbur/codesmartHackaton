@@ -1,17 +1,20 @@
 package pl.teamhandicap.but.screens
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.parcel.Parcelize
 import kotlinx.android.synthetic.main.fragment_confirmation_layout.*
+import pl.teamhandicap.but.CartItem
 import pl.teamhandicap.but.MainActivity
 import pl.teamhandicap.but.R
 import pl.teamhandicap.but.adapters.ConfirmationItemsAdapter
-import pl.teamhandicap.but.adapters.DetailsModel
-import pl.teamhandicap.but.adapters.TestModel
 import pl.teamhandicap.but.network.Order
 import pl.teamhandicap.but.network.Product
 import pl.teamhandicap.but.network.Repository
@@ -25,71 +28,43 @@ class ConfirmationFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_confirmation_layout, container, false)
     }
 
+    private val args by navArgs<ConfirmationFragmentArgs>()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val colors = context?.resources?.getIntArray(R.array.box_colors)
-        val adapter = ConfirmationItemsAdapter(createTestData(), colors)
+        val data = args.orderConfirmation
+        val adapter = ConfirmationItemsAdapter(data.items, colors)
         val layoutManager = LinearLayoutManager(context)
         (activity as MainActivity).setActionBarTitle("Checkout")
         confirmationRecyclerView.apply {
             setLayoutManager(layoutManager)
             setAdapter(adapter)
         }
-        confirmationPriceSummaryText.text = "12.90 PLN"
+        var price = 0.0
+        data.items.forEach {
+            price += it.product.price
+        }
+        val formattedPrice = String.format("%.2f", price)
+        val priceText = "$formattedPrice PLN"
+        confirmationPriceSummaryText.text = priceText
         placeOrder.setOnClickListener {
+            val products = data.items.map {
+                Product(
+                    name = context?.getString(it.product.nameRes),
+                    additionalNote = it.details.joinToString(separator = ", "),
+                )
+            }
             Repository.postNewOrder(
-                Order(listOf(Product("Hi", "Bye"), Product("Late", "Later")),12.34)
+                Order(products, price)
             ) {
-
+                Toast.makeText(context, "Request Successful", Toast.LENGTH_SHORT).show()
             }
         }
     }
-
-    private fun createTestData(): List<TestModel> {
-        return listOf(
-            TestModel(
-                name = "Latte",
-                numberOfItems = 2,
-                details = listOf(
-                    DetailsModel(
-                        name = "Cukier",
-                        imageRes = R.drawable.ic_detail_outline
-                    ),
-                    DetailsModel(
-                        name = "Mieszadelko",
-                        imageRes = R.drawable.ic_detail_outline
-                    ),
-                    DetailsModel(
-                        name = "Mleko bez laktozy",
-                        imageRes = R.drawable.ic_detail_outline
-                    )
-                ),
-                imageRes = R.drawable.ic_cafe_outline,
-                price = 3.0
-            ),
-            TestModel(
-                name = "Black Coffe",
-                numberOfItems = 0,
-                details = listOf(
-                    DetailsModel(
-                        name = "Cukier Trzcinowy x2",
-                        imageRes = R.drawable.ic_detail_outline
-                    ),
-                    DetailsModel(
-                        name = "Mieszadelko",
-                        imageRes = R.drawable.ic_detail_outline
-                    ),
-                ),
-                imageRes = R.drawable.ic_cafe_outline,
-                price = 3.0
-            ),
-            TestModel(
-                name = "Kanapka Indyk",
-                numberOfItems = 1,
-                details = listOf(),
-                imageRes = R.drawable.ic_food_outline,
-                price = 6.90
-            )
-        )
-    }
 }
+
+@Parcelize
+data class OrderConfirmationData(
+    val items: List<CartItem>
+) : Parcelable

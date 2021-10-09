@@ -39,9 +39,12 @@ class CartBottomSheetFragment : BottomSheetDialogFragment() {
             productsListRecyclerView.layoutManager = LinearLayoutManager(context)
         }
         orderButton.setOnClickListener {
-            findNavController().navigate(
-                CartBottomSheetFragmentDirections.confirmOrder()
-            )
+            viewModel.cartItems.value?.toList()?.let {
+                val data = OrderConfirmationData(it)
+                findNavController().navigate(
+                    CartBottomSheetFragmentDirections.confirmOrder(data)
+                )
+            }
         }
     }
 }
