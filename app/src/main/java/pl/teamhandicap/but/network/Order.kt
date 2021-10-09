@@ -11,7 +11,8 @@ data class Order(
 enum class Status {
     Pending,
     Confirmed,
-    Ready
+    Ready,
+    Completed
 }
 
 data class Product(

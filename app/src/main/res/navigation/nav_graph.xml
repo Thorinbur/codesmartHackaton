@@ -28,6 +28,9 @@
         <action
             android:id="@+id/pickUp"
             app:destination="@id/pickupFragment" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment" />
     </fragment>
 
     <fragment
