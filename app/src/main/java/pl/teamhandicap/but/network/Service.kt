@@ -12,5 +12,8 @@ interface Service {
 
     @GET("orders/{guid}")
     fun getOrder(@Path("guid") guid: String): Call<Order>
+
+    @GET("orders")
+    fun getOrders(): Call<List<Order>>
 }
 

@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_main_layout.view.*
 import pl.teamhandicap.but.R
+import pl.teamhandicap.but.adapters.OrderListAdapter
+import pl.teamhandicap.but.network.Repository
 
 class MainScreenFragment : Fragment() {
     override fun onCreateView(
@@ -22,6 +24,11 @@ class MainScreenFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         view.newOrderButton.setOnClickListener {
             findNavController().navigate(MainScreenFragmentDirections.newOrder())
+        }
+        Repository.getOrders {
+            val adapter = OrderListAdapter(it)
+            view.orderList.adapter = adapter
+            adapter.notifyDataSetChanged()
         }
     }
 }

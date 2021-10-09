@@ -19,6 +19,10 @@
         <action
             android:id="@+id/newOrder"
             app:destination="@id/newOrderFragment" />
+        <action
+            android:id="@+id/pickUp"
+            app:destination="@id/pickupFragment"
+            />
     </fragment>
 
     <fragment
@@ -54,5 +58,13 @@
             app:argType="integer"
             app:nullable="false" />
     </dialog>
+    <fragment
+        android:id="@+id/pickupFragment"
+        android:name="pl.teamhandicap.but.screens.PickupFragment"
+        android:label="PickupFragment" >
+        <argument
+            android:name="orderId"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

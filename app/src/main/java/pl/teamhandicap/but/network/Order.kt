@@ -3,7 +3,9 @@ package pl.teamhandicap.but.network
 data class Order(
     val products: List<Product>?,
     val totalAmount: Double?,
-    val status: Status? = null
+    val status: Status? = null,
+    val orderNumber: Int? = null,
+    val id: String? = null
 )
 
 enum class Status {

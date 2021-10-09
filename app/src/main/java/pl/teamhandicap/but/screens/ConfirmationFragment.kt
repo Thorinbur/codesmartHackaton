@@ -12,9 +12,11 @@ import pl.teamhandicap.but.R
 import pl.teamhandicap.but.adapters.ConfirmationItemsAdapter
 import pl.teamhandicap.but.adapters.DetailsModel
 import pl.teamhandicap.but.adapters.TestModel
+import pl.teamhandicap.but.network.Order
+import pl.teamhandicap.but.network.Product
+import pl.teamhandicap.but.network.Repository
 
 class ConfirmationFragment : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,6 +36,13 @@ class ConfirmationFragment : Fragment() {
             setAdapter(adapter)
         }
         confirmationPriceSummaryText.text = "12.90 PLN"
+        placeOrder.setOnClickListener {
+            Repository.postNewOrder(
+                Order(listOf(Product("Hi", "Bye"), Product("Late", "Later")),12.34)
+            ) {
+
+            }
+        }
     }
 
     private fun createTestData(): List<TestModel> {
@@ -43,7 +52,7 @@ class ConfirmationFragment : Fragment() {
                 numberOfItems = 2,
                 details = listOf(
                     DetailsModel(
-                        name = "Cukier x1",
+                        name = "Cukier",
                         imageRes = R.drawable.ic_detail_outline
                     ),
                     DetailsModel(

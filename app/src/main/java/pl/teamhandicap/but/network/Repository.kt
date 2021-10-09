@@ -8,13 +8,8 @@ object Repository {
     var lastGuid:String? = null
     private val service: Service get() = ServiceProvider.service
 
-    fun postNewOrder(onResponse:(Response<OrderResponse>) -> Unit) = service.postNewOrder(
-        Order(
-            listOf(
-                Product("Test", "with Milk")
-            ),
-            12.43
-        )
+    fun postNewOrder(order:Order, onResponse:(Response<OrderResponse>) -> Unit) = service.postNewOrder(
+       order
     ).enqueue(object: Callback<OrderResponse>{
         override fun onResponse(call: Call<OrderResponse>, response: Response<OrderResponse>) {
             lastGuid = response.body()?.id
@@ -35,6 +30,15 @@ object Repository {
         }
 
         override fun onFailure(call: Call<Order>, t: Throwable) {
+        }
+    })
+
+    fun getOrders(onResponse:(List<Order>) -> Unit) = service.getOrders().enqueue(object: Callback<List<Order>>{
+        override fun onResponse(call: Call<List<Order>>, response: Response<List<Order>>) {
+            onResponse.invoke(response.body()!!)
+        }
+
+        override fun onFailure(call: Call<List<Order>>, t: Throwable) {
         }
     })
 }
