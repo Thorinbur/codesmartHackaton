@@ -29,6 +29,9 @@
         <action
             android:id="@+id/showCart"
             app:destination="@id/cartDialog" />
+        <action
+            android:id="@+id/selectProduct"
+            app:destination="@id/detailsDialog" />
     </fragment>
 
     <dialog
@@ -39,6 +42,17 @@
         <action
             android:id="@+id/confirmOrder"
             app:destination="@id/confirmationFragment" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/detailsDialog"
+        android:name="pl.teamhandicap.but.screens.ProductDetailsDialogFragment"
+        android:label="@string/details_fragment_label"
+        tools:layout="@layout/fragment_product_details">
+        <argument
+            android:name="productId"
+            app:argType="integer"
+            app:nullable="false" />
     </dialog>
 
 </navigation>

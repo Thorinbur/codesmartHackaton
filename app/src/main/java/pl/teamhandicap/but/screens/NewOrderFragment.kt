@@ -40,6 +40,8 @@ class NewOrderFragment : Fragment() {
     }
 
     private fun onProductClicked(id: Int) {
-        viewModel.addProductToOrder(id)
+        findNavController().navigate(
+            NewOrderFragmentDirections.selectProduct(id)
+        )
     }
 }

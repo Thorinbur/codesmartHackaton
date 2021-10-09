@@ -27,10 +27,10 @@ class CartBottomSheetFragment : BottomSheetDialogFragment() {
 
     private fun setUpViews() {
         val viewModel by activityViewModels<NewOrderViewModel>()
-        viewModel.cartItems.observe(viewLifecycleOwner) { products ->
-            products.forEach { product ->
+        viewModel.cartItems.observe(viewLifecycleOwner) { cartItems ->
+            cartItems.forEach { cartItem ->
                 val textView = TextView(context).apply {
-                    text = context.getText(product.nameRes)
+                    text = context.getText(cartItem.product.nameRes)
                 }
                 productsList.addView(textView)
             }
