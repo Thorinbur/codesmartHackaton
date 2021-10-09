@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.my_toolbar))
     }
 
-    fun setActionBarTitle(title: String) {
+    fun setActionBarTitle(title: String?) {
         toolbarText.text = title
     }
 }

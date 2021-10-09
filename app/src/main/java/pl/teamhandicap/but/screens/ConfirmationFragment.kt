@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.parcel.Parcelize
@@ -63,7 +64,8 @@ class ConfirmationFragment : Fragment() {
             Repository.postNewOrder(
                 Order(products, price)
             ) {
-                Toast.makeText(context, "Request Successful", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(ConfirmationFragmentDirections.executeOrder())
+//                Toast.makeText(context, "Request Successful", Toast.LENGTH_SHORT).show()
             }
         }
     }

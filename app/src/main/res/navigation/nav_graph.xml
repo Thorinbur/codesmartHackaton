@@ -15,6 +15,10 @@
             android:name="orderConfirmation"
             app:argType="pl.teamhandicap.but.screens.OrderConfirmationData" />
 
+        <action
+            android:id="@+id/executeOrder"
+            app:destination="@id/successFragment" />
+
     </fragment>
 
     <fragment
@@ -73,6 +77,19 @@
         <argument
             android:name="orderId"
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="pl.teamhandicap.but.screens.SuccessFragment"
+        android:label="SuccessFragment">
+
+        <action
+            android:id="@+id/goBackToList"
+            app:destination="@id/mainScreenFragment"
+            app:popUpTo="@id/mainScreenFragment"
+            app:popUpToInclusive="true" />
+
     </fragment>
 
 </navigation>

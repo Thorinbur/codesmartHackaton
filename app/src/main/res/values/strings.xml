@@ -10,4 +10,7 @@
     <string name="new_order">Nowe zamówienie</string>
     <string name="accept">Potwierdź</string>
     <string name="checkout">Przejdź do podsumowania</string>
+    <string name="success">Sukces!</string>
+    <string name="success_description">Twoje zamówienie zostało złożone i czeka na potwierdzenie</string>
+    <string name="success_fragment_button">OK</string>
 </resources>
