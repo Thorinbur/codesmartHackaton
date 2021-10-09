@@ -59,8 +59,12 @@ class NewOrderFragment : Fragment() {
     }
 
     private fun onProductClicked(id: Int) {
-        findNavController().navigate(
-            NewOrderFragmentDirections.selectProduct(id)
-        )
+        if (viewModel.products.find { it.id == id }?.details?.isNotEmpty() == true) {
+            findNavController().navigate(
+                NewOrderFragmentDirections.selectProduct(id)
+            )
+        } else {
+            viewModel.addProductToOrder(id, emptyList())
+        }
     }
 }
