@@ -32,7 +32,8 @@ class CartAdapter(
                 cartItemText.text = context.getString(model.product.nameRes)
                 cartItemDetails.apply {
                     isVisible = model.details.isNotEmpty()
-                    val details = model.details.joinToString(separator = ", ")
+                    val details = model.details
+                        .joinToString(separator = ", ") { itemView.context.getText(it.nameRes) }
                     text = details
                 }
                 setOnClickListener { clickListener.invoke(model) }
