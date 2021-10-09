@@ -53,7 +53,7 @@ class ProductListAdapter(
             quantity.text = model.selectedQuantity.toString()
             quantity.isVisible = model.selectedQuantity > 0
             itemView.setOnClickListener { onClickAction(model.product.id) }
-            price.text = "${model.product.price} PLN"
+            price.text = "${String.format(" % .2f", model.product.price)} PLN"
         }
     }
 }
