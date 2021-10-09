@@ -30,7 +30,9 @@ class CartBottomSheetFragment : BottomSheetDialogFragment() {
         viewModel.cartItems.observe(viewLifecycleOwner) { cartItems ->
             cartItems.forEach { cartItem ->
                 val textView = TextView(context).apply {
-                    text = context.getText(cartItem.product.nameRes)
+                    val productName = context.getText(cartItem.product.nameRes)
+                    val details = cartItem.details
+                    text = "$productName\n$details"
                 }
                 productsList.addView(textView)
             }
