@@ -5,7 +5,7 @@
     <string name="new_order_fragment_label">Confirmation Label</string>
     <string name="cart_fragment_label">Cart Label</string>
     <string name="details_fragment_label">Details Label</string>
-    <string name="confirmation_order_button">Place Order</string>
-    <string name="new_order">New order</string>
-    <string name="accept">accept</string>
+    <string name="confirmation_order_button">Złóż zamówienie</string>
+    <string name="new_order">Nowe zamówienie</string>
+    <string name="accept">Potwierdź</string>
 </resources>
