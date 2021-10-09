@@ -19,7 +19,7 @@ class OrderListAdapter(private var items:List<Order>):RecyclerView.Adapter<Order
                 Status.Confirmed -> {
                     itemView.status.text = "Potwierdzona"
                     //itemView.status.setTextColor(itemView.context.getColor(R.color.light_blue))
-                    itemView.infoText.text = "Twoje zamówinie o numerze ${order.orderNumber.toString()} \n Jest w trakcie przygotowania."
+                    itemView.infoText.text = "Twoje zamówinie o numerze ${order.orderNumber.toString()} \nJest w trakcie przygotowania."
                     itemView.actionButton.visibility = View.INVISIBLE
                 }
                 Status.Ready -> {
@@ -29,13 +29,13 @@ class OrderListAdapter(private var items:List<Order>):RecyclerView.Adapter<Order
                         itemView.findNavController().navigate(MainScreenFragmentDirections.pickUp(order.id!!))
                     }
                     itemView.actionButton.visibility = View.VISIBLE
-                    itemView.infoText.text = "Twoje zamówienie o numerze ${order.orderNumber.toString()} \n jest gotowe do odbioru! Zapraszamy!"
+                    itemView.infoText.text = "Twoje zamówienie o numerze ${order.orderNumber.toString()} \njest gotowe do odbioru! Zapraszamy!"
                 }
                 Status.Pending -> {
                     itemView.status.text = "Oczekuje"
                   //  itemView.status.setTextColor(itemView.context.getColor(R.color.light_yellow))
                     itemView.actionButton.visibility = View.INVISIBLE
-                    itemView.infoText.text = "Twoje zamówienie o numerze ${order.orderNumber.toString()} \n czeka na akceptacje pracownika Nero"
+                    itemView.infoText.text = "Twoje zamówienie o numerze ${order.orderNumber.toString()} \nczeka na akceptacje pracownika Nero"
 
                 }
             }
