@@ -40,13 +40,33 @@
             android:textStyle="bold"
             tools:text="15 PLN" />
 
-        <Button
-            android:id="@+id/placeOrder"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:padding="10dp"
-            android:text="@string/confirmation_order_button" />
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/payNowButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:text="@string/confirmation_pay_now"
+                android:textColor="@color/gray" />
+
+            <Button
+                android:id="@+id/payLaterButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:text="@string/confirmation_pay_later"
+                android:textColor="@color/magenta" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

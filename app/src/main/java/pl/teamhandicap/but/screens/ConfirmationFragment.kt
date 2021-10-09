@@ -41,6 +41,9 @@ class ConfirmationFragment : Fragment() {
             setLayoutManager(layoutManager)
             setAdapter(adapter)
         }
+        payNowButton.setOnClickListener {
+            Toast.makeText(context, "Dostępne wkrótce", Toast.LENGTH_SHORT).show()
+        }
         var price = 0.0
         data.items.forEach {
             price += it.product.price
@@ -48,7 +51,7 @@ class ConfirmationFragment : Fragment() {
         val formattedPrice = String.format("%.2f", price)
         val priceText = "$formattedPrice PLN"
         confirmationPriceSummaryText.text = priceText
-        placeOrder.setOnClickListener {
+        payLaterButton.setOnClickListener {
             val products = data.items.map {
                 Product(
                     name = context?.getString(it.product.nameRes),
