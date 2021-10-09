@@ -30,7 +30,7 @@ class ConfirmationDetailsAdapter(
         fun bind(model: Detail) {
             itemView.apply {
                 confirmationItemDetailsImage.setImageResource(model.iconRes)
-                confirmationItemDetailsText.text = model.name
+                confirmationItemDetailsText.text = itemView.context.getText(model.nameRes)
             }
         }
     }

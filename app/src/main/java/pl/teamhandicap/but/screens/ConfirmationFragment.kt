@@ -55,7 +55,9 @@ class ConfirmationFragment : Fragment() {
             val products = data.items.map {
                 Product(
                     name = context?.getString(it.product.nameRes),
-                    additionalNote = it.details.joinToString(separator = ", "),
+                    additionalNote = it.details.joinToString(separator = ", ") {
+                        requireContext().getText(it.nameRes)
+                    },
                 )
             }
             Repository.postNewOrder(
