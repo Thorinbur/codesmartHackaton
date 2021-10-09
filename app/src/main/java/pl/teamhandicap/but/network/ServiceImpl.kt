@@ -5,8 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ServiceProvider {
     private val retrofit = Retrofit.Builder()
-            // TODO: add proper baseUrl
-        .baseUrl("https://www.example.com/")
+        .baseUrl("https://webapphackathon.azurewebsites.net/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
