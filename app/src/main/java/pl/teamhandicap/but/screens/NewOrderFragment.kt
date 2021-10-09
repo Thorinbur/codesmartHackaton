@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.fragment_new_order.*
 import pl.teamhandicap.but.NewOrderViewModel
 import pl.teamhandicap.but.R
-import pl.teamhandicap.but.adapters.ProductsListAdapter
+import pl.teamhandicap.but.adapters.ProductListAdapter
 
 class NewOrderFragment : Fragment() {
     private val viewModel by viewModels<NewOrderViewModel>()
@@ -27,7 +27,7 @@ class NewOrderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        productsList.adapter = ProductsListAdapter(viewModel.products.value!!)
+        productsList.adapter = ProductListAdapter(viewModel.products)
         productsList.layoutManager = GridLayoutManager(context, 3)
 
         showCartButton.setOnClickListener {

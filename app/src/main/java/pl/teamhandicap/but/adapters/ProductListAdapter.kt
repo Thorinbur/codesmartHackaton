@@ -5,11 +5,12 @@ import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.view_product_item.view.*
+import pl.teamhandicap.but.Product
 import pl.teamhandicap.but.view.ProductItemView
 
-class ProductsListAdapter(
+class ProductListAdapter(
     private val items: List<Product>
-) : RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(ProductItemView(parent.context))
@@ -26,14 +27,9 @@ class ProductsListAdapter(
         private val icon get() = itemView.icon
 
         fun bind(model: Product) {
-            label.text = model.name
+            label.text = itemView.context.getText(model.nameRes)
             val drawable = AppCompatResources.getDrawable(itemView.context, model.iconRes)
             icon.setImageDrawable(drawable)
         }
     }
 }
-
-data class Product(
-    val name: String,
-    val iconRes: Int,
-)

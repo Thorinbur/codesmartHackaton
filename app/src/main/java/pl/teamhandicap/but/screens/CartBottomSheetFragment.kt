@@ -36,8 +36,4 @@ class CartBottomSheetFragment: BottomSheetDialogFragment() {
             )
         }
     }
-
-    companion object {
-        fun newInstance() =  CartBottomSheetFragment()
-    }
 }
