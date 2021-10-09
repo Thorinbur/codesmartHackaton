@@ -40,7 +40,7 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@id/confirmationTotalPrice"
             app:layout_constraintStart_toEndOf="@id/confirmationItemImage"
-            app:layout_constraintTop_toTopOf="@id/confirmationTotalPrice"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Kawa Latte" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -55,8 +55,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
-            app:layout_constraintBaseline_toTopOf="parent"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/confirmationTitleTextView"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/confirmationTitleTextView"
             tools:text="2 PLN" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

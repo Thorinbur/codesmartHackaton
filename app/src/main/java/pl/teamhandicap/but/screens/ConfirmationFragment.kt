@@ -33,7 +33,7 @@ class ConfirmationFragment : Fragment() {
             setLayoutManager(layoutManager)
             setAdapter(adapter)
         }
-        confirmationPriceSummary.text = "12.90 PLN"
+        confirmationPriceSummaryText.text = "12.90 PLN"
     }
 
     private fun createTestData(): List<TestModel> {
