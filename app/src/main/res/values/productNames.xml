@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="coffee_late">LATE</string>
-    <string name="coffee_CAPPUCCINO">CAPPUCCINO</string>
-    <string name="coffee_AMERICANA">AMERICANA</string>
-    <string name="coffee_ESPRESSO">ESPRESSO</string>
-    <string name="coffee_FLAT_WHITE">FLAT WHITE</string>
-    <string name="coffee_MOCHA">MOCHA</string>
-    <string name="coffee_ICED_FLAT_WHITE">ICED FLAT WHITE</string>
-    <string name="tea">HERBATA</string>
-    <string name="sandwich_CHEESE_AND_HAM">SER I SZYNKA</string>
-    <string name="sandwich_CHICKEN_AND_FETA_CHEESE">KURCZAK I SER FETA</string>
-    <string name="sandwich_HAM">SZYNKA</string>
-    <string name="sandwich_SALMON_AND_GUACAMOLE">ŁOSOŚ I GUACAMOLE</string>
-    <string name="sandwich_TUNA_BAGUETTE">BAGIETKA Z TUŃCZYKIEM</string>
+    <string name="coffee_late">Latte</string>
+    <string name="coffee_CAPPUCCINO">Cappuccino</string>
+    <string name="coffee_AMERICANA">Americana</string>
+    <string name="coffee_ESPRESSO">Expresso</string>
+    <string name="coffee_FLAT_WHITE">Flat White</string>
+    <string name="coffee_MOCHA">Mocha</string>
+    <string name="coffee_ICED_FLAT_WHITE">Iced Flat White</string>
+    <string name="tea">Herbata</string>
+    <string name="sandwich_CHEESE_AND_HAM">Ser i Szynka</string>
+    <string name="sandwich_CHICKEN_AND_FETA_CHEESE">Kurczak z serem feta</string>
+    <string name="sandwich_HAM">Szynka</string>
+    <string name="sandwich_SALMON_AND_GUACAMOLE">Łosoś i Guacamole</string>
+    <string name="sandwich_TUNA_BAGUETTE">Bagietka z Tuńczykiem</string>
 </resources>

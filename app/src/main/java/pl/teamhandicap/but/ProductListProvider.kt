@@ -1,5 +1,8 @@
 package pl.teamhandicap.but
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 object ProductListProvider {
     fun get() = listOf(
         Product(
@@ -49,53 +52,54 @@ object ProductListProvider {
             nameRes = R.string.tea,
             iconRes = R.raw.herbata,
             price = 3.0,
-            details = Detail.values().toList(),
+            details = listOf(),
         ),
         Product(
             id = 8,
             nameRes = R.string.sandwich_CHEESE_AND_HAM,
             iconRes = R.raw.sandwich_2,
             price = 3.0,
-            details = Detail.values().toList(),
+            details = listOf(),
         ),
         Product(
             id = 9,
             nameRes = R.string.sandwich_CHICKEN_AND_FETA_CHEESE,
             iconRes = R.raw.sandwich_3,
             price = 3.0,
-            details = Detail.values().toList(),
+            details = listOf(),
         ),
         Product(
             id = 10,
             nameRes = R.string.sandwich_HAM,
             iconRes = R.raw.sandwich_4,
             price = 3.0,
-            details = listOf(Detail.SUGAR),
+            details = listOf(),
         ),
         Product(
             id = 11,
             nameRes = R.string.sandwich_SALMON_AND_GUACAMOLE,
             iconRes = R.raw.sandwich_5,
             price = 3.0,
-            details = listOf(Detail.SUGAR),
+            details = listOf(),
         ),
         Product(
             id = 12,
             nameRes = R.string.sandwich_TUNA_BAGUETTE,
             iconRes = R.raw.kanapka,
             price = 3.0,
-            details = listOf(Detail.SUGAR),
+            details = listOf(),
         )
     )
 }
 
+@Parcelize
 data class Product(
     val id: Int,
     val nameRes: Int,
     val iconRes: Int,
     val price: Double,
     val details: List<Detail>? = null,
-)
+) : Parcelable
 
 enum class Detail(val nameRes: Int, val iconRes: Int = R.drawable.ic_cafe) {
     SUGAR(R.string.sugar),
