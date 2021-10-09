@@ -1,6 +1,7 @@
 package pl.teamhandicap.but.screens
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,21 +29,32 @@ class NewOrderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        productsList.adapter = ProductListAdapter(viewModel.products, ::onProductClicked)
+        val models = viewModel.products.map { ProductListAdapter.ProductAdapterItem(it) }
+        val adapter = ProductListAdapter(models, ::onProductClicked)
+        productsList.adapter = adapter
         productsList.layoutManager = GridLayoutManager(context, 3)
         (activity as MainActivity).setActionBarTitle("Menu")
+        viewModel.cartItems.observe(viewLifecycleOwner, { selectedItems ->
+            showCartButton.isVisible = selectedItems.isNotEmpty()
+            cartItemsCounter.text = selectedItems.size.toString()
+            cartItemsCounter.isVisible = selectedItems.isNotEmpty()
+            val groups =
+                selectedItems.groupBy { it.product.id }
+            val newList = viewModel.products.map { product ->
+                val quantity =
+                    groups.takeIf { !it.isNullOrEmpty() }?.get(product.id)?.size ?: 0
+                ProductListAdapter.ProductAdapterItem(
+                    product,
+                    quantity
+                )
+            }
+            adapter.updateItems(newList)
+        })
 
         showCartButton.setOnClickListener {
             findNavController().navigate(
                 NewOrderFragmentDirections.showCart()
             )
-        }
-
-        viewModel.cartItems.observe(viewLifecycleOwner) { cartItems ->
-            showCartButton.isVisible = cartItems.isNotEmpty()
-            cartItemsCounter.isVisible = cartItems.isNotEmpty()
-            cartItemsCounter.text = "${cartItems.size}"
         }
     }
 

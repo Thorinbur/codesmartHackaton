@@ -15,7 +15,7 @@ import pl.teamhandicap.but.Detail
 import pl.teamhandicap.but.NewOrderViewModel
 import pl.teamhandicap.but.R
 
-class ProductDetailsDialogFragment: DialogFragment() {
+class ProductDetailsDialogFragment : DialogFragment() {
     private val viewModel by activityViewModels<NewOrderViewModel>()
     private val args by navArgs<ProductDetailsDialogFragmentArgs>()
 

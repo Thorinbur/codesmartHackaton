@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_cart_bottom_sheet.*
 import pl.teamhandicap.but.NewOrderViewModel
 import pl.teamhandicap.but.R
+import pl.teamhandicap.but.adapters.CartAdapter
 
 class CartBottomSheetFragment : BottomSheetDialogFragment() {
     override fun onCreateView(
@@ -28,14 +29,14 @@ class CartBottomSheetFragment : BottomSheetDialogFragment() {
     private fun setUpViews() {
         val viewModel by activityViewModels<NewOrderViewModel>()
         viewModel.cartItems.observe(viewLifecycleOwner) { cartItems ->
-            cartItems.forEach { cartItem ->
-                val textView = TextView(context).apply {
-                    val productName = context.getText(cartItem.product.nameRes)
-                    val details = cartItem.details
-                    text = "$productName\n$details"
-                }
-                productsList.addView(textView)
+            if (cartItems.isEmpty()) {
+                dismiss()
+                return@observe
             }
+            productsListRecyclerView.adapter = CartAdapter(cartItems) {
+                viewModel.removeItemFromCart(it)
+            }
+            productsListRecyclerView.layoutManager = LinearLayoutManager(context)
         }
         orderButton.setOnClickListener {
             findNavController().navigate(
